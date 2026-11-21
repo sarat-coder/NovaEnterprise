@@ -13,20 +13,20 @@ the event timeline and render the step-by-step progress view.
 
 | Order | Node ID | Display label |
 |-------|---------|---------------|
-| 1  | `analyze_query`         | Analysing question |
-| 2  | `assess_complexity`     | Assessing complexity |
-| 3  | `decompose`             | Decomposing into sub-questions |
-| 4  | `route_retrieval`       | Routing retrieval |
-| 5  | `vector_retrieval`      | Vector / semantic search |
-| 6  | `sql_retrieval`         | SQL records lookup |
-| 7  | `graph_retrieval`       | Graph traversal |
-| 8  | `hybrid_retrieval`      | Hybrid retrieval |
-| 9  | `collect_evidence`      | Collecting evidence |
-| 10 | `check_missing_evidence`| Checking for gaps |
-| 11 | `corrective_retrieval`  | Corrective retrieval |
-| 12 | `verify_evidence`       | Verifying evidence |
-| 13 | `synthesize_answer`     | Synthesising answer |
-| 14 | `verify_citations`      | Verifying citations |
+| 1  | `analyze_query`          | Analysing question |
+| 2  | `assess_complexity`      | Assessing complexity |
+| 3  | `decompose`              | Decomposing into sub-questions |
+| 4  | `route_retrieval`        | Routing retrieval |
+| 5  | `vector_retrieval`       | Vector / semantic search |
+| 6  | `sql_retrieval`          | SQL records lookup |
+| 7  | `graph_retrieval`        | Graph traversal |
+| 8  | `hybrid_retrieval`       | Hybrid retrieval |
+| 9  | `collect_evidence`       | Collecting evidence |
+| 10 | `check_missing_evidence` | Checking for gaps |
+| 11 | `corrective_retrieval`   | Corrective retrieval |
+| 12 | `verify_evidence`        | Verifying evidence |
+| 13 | `synthesize_answer`      | Synthesising answer |
+| 14 | `verify_citations`       | Verifying citations |
 
 > Node IDs 5–8 may appear multiple times (once per sub-question). The frontend should
 > group events by their `node` field and render them in `occurred_at` order.

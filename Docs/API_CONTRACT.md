@@ -152,10 +152,10 @@ List all incidents.
 ```
 
 **Query parameters**
-| Param    | Type   | Description |
-|----------|--------|-------------|
-| severity | string | Filter by severity (`SEV1`, `SEV2`, `SEV3`) |
-| service_id | int | Filter by service |
+| Param      | Type   | Description |
+|------------|--------|-------------|
+| severity   | string | Filter by severity (`SEV1`, `SEV2`, `SEV3`) |
+| service_id | int    | Filter by service |
 
 ### GET /api/v1/incidents/{incident_id}
 
