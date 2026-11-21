@@ -17,6 +17,9 @@ dependencies = [
     "aiosqlite>=0.20.0",
     "pyjwt>=2.8.0",
     "redis>=5.0.0",
+    # Phase 4 — AI providers and guardrails
+    "langchain-core>=0.3.0",
+    "langgraph>=0.2.0",
 ]
 
 [dependency-groups]

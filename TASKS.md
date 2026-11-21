@@ -63,10 +63,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P4-1 · `get_llm()` provider factory and the fake LLM | `feature/llm-provider-factory` | Pending ❌ |
-| P4-2 · `get_embedding_model()` and fake embeddings | `feature/embedding-provider-factory` | Pending ❌ |
-| P4-3 · Prompt-injection wrap, scan, and flag | `feature/guardrail-injection` | Pending ❌ |
-| P4-4 · Output scrub: secrets and hidden reasoning | `feature/guardrail-output-scrub` | Pending ❌ |
+| P4-1 · `get_llm()` provider factory and the fake LLM | `feature/llm-provider-factory` | Completed ✅ |
+| P4-2 · `get_embedding_model()` and fake embeddings | `feature/embedding-provider-factory` | Completed ✅ |
+| P4-3 · Prompt-injection wrap, scan, and flag | `feature/guardrail-injection` | Completed ✅ |
+| P4-4 · Output scrub: secrets and hidden reasoning | `feature/guardrail-output-scrub` | Completed ✅ |
 
 ---
 
@@ -284,7 +284,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 1 | Runtime skeleton | 5 | 5 |
 | 2 | Persistence and sample data | 5 | 5 |
 | 3 | Identity and request guards | 4 | 4 |
-| 4 | AI providers and guardrails | 4 | 0 |
+| 4 | AI providers and guardrails | 4 | 4 |
 | 5 | API contract and browse API | 3 | 0 |
 | 6 | Vector RAG | 4 | 0 |
 | 7 | Graph RAG | 4 | 0 |
@@ -296,4 +296,4 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **10** |
+| **Total** | | **67** | **14** |

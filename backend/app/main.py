@@ -43,6 +43,11 @@ async def lifespan(app: FastAPI):
 
     register_redis_check()
 
+    # Phase 4: LLM readiness check.
+    from app.core.llm import register_llm_check  # noqa: PLC0415
+
+    register_llm_check()
+
     logger.info("Startup complete")
     yield
     logger.info("NovaEnterprise backend stopping")
