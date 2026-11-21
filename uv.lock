@@ -70,6 +70,19 @@ wheels = [
 ]
 
 [[package]]
+name = "fakeredis"
+version = "2.40.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "redis" },
+    { name = "sortedcontainers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/61/d0/8cbd1339c2a606a0ceda74e1a181248d372bb2c66bc6cf9d954871839ff9/fakeredis-2.40.0.tar.gz", hash = "sha256:16eb05a3e97c37a033c73d1da7e885eb2aa47ba7604cc377144339efa2780a02", size = 332674, upload-time = "2026-10-14T12:46:01.851Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c7/e4/6919d3653d72c53d1fb22c97ceb6fa3664cad302994e90ee52279f7eb394/fakeredis-2.40.0-py3-none-any.whl", hash = "sha256:b155ef2442134372eb1cc5664cf5638ccbe0a6dde9d1942153708e2782f315c9", size = 204148, upload-time = "2026-10-14T12:46:00.014Z" },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.165.0"
 source = { registry = "https://pypi.org/simple" }
@@ -237,6 +250,8 @@ dependencies = [
     { name = "fastapi" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
+    { name = "pyjwt" },
+    { name = "redis" },
     { name = "sqlalchemy" },
     { name = "uvicorn", extra = ["standard"] },
 ]
@@ -244,6 +259,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "anyio" },
+    { name = "fakeredis" },
     { name = "httpx" },
     { name = "pytest" },
     { name = "ruff" },
@@ -255,6 +271,8 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.115.0" },
     { name = "pydantic", specifier = ">=2.9.0" },
     { name = "pydantic-settings", specifier = ">=2.6.0" },
+    { name = "pyjwt", specifier = ">=2.8.0" },
+    { name = "redis", specifier = ">=5.0.0" },
     { name = "sqlalchemy", specifier = ">=2.0.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.30.0" },
 ]
@@ -262,6 +280,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "anyio", extras = ["asyncio"], specifier = ">=4.6" },
+    { name = "fakeredis", specifier = ">=2.26.0" },
     { name = "httpx", specifier = ">=0.27" },
     { name = "pytest", specifier = ">=8.3" },
     { name = "ruff", specifier = ">=0.9.0" },
@@ -446,6 +465,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pyjwt"
+version = "2.15.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/43/ea/5194e52748b0da83d71e082d75496eaec6e58f419f5e184786ded517e6a9/pyjwt-2.15.1.tar.gz", hash = "sha256:4f259e80cdfb6b3fc18a7de51fd1ef9ec79652f25019bae68975ca2468a34df8", size = 121252, upload-time = "2026-09-28T18:40:42.598Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/50/ca/44de4e75f8aadc457f0634be3b542815078ded46dca30efb960edeecad6e/pyjwt-2.15.1-py3-none-any.whl", hash = "sha256:42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193", size = 33860, upload-time = "2026-09-28T18:40:41.429Z" },
+]
+
+[[package]]
 name = "pytest"
 version = "9.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -535,6 +563,15 @@ wheels = [
 ]
 
 [[package]]
+name = "redis"
+version = "8.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a8/99/604f0b666d4c616d891cf77ebb9db6bb21601344c051aebf1b72b9ff915f/redis-8.1.0.tar.gz", hash = "sha256:6e1a19beef9225c83efd689c7e6b7da2d5215b1f42cd13b7fc3714d0a09c7b25", size = 5254356, upload-time = "2026-07-30T08:51:00.269Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/66/9d/c5731f6e3608663d4d3656fd8d3aecee8b509c3082818f5a13eae925baea/redis-8.1.0-py3-none-any.whl", hash = "sha256:a4fe1aac3d3b3cc791d4b3d5931c5a956045dc951ee74d1c913ee3ac4d2ee9fb", size = 560618, upload-time = "2026-07-30T08:50:58.497Z" },
+]
+
+[[package]]
 name = "ruff"
 version = "0.17.6"
 source = { registry = "https://pypi.org/simple" }
@@ -557,6 +594,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/2e/09/28329441dfa2c463e2d377a69d4ebbe4d51665e9dbd49fb421f3bc80d775/ruff-0.17.6-py3-none-win32.whl", hash = "sha256:c2f4af6670b7a0501904e881bb3f1f24bd0d964dec1eedbd85f0eb73786e1128", size = 9966266, upload-time = "2026-11-19T15:56:21.581Z" },
     { url = "https://files.pythonhosted.org/packages/4b/9d/18ba9730addfc7554c70d6f171fb8dc2c08e774d9fb2b98e7946ef845c59/ruff-0.17.6-py3-none-win_amd64.whl", hash = "sha256:9cd2fd9923e9806b8b6b67a3469e2258e84bd4d21e45d5a1a690afdfb9c8e57d", size = 10365847, upload-time = "2026-11-19T15:56:23.582Z" },
     { url = "https://files.pythonhosted.org/packages/70/8a/59c33e2a64a4f9672f7f842a0dc522915cfbbaffd13d37d0cec57d1c5c5d/ruff-0.17.6-py3-none-win_arm64.whl", hash = "sha256:d8b14e1473dc86ab9069cf7a2ba5041dc012f59110201844ed04cfddf07055a0", size = 9926224, upload-time = "2026-11-19T15:56:25.269Z" },
+]
+
+[[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88", size = 30594, upload-time = "2021-05-16T22:03:42.897Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0", size = 29575, upload-time = "2021-05-16T22:03:41.177Z" },
 ]
 
 [[package]]

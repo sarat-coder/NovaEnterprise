@@ -19,7 +19,7 @@ os.environ.setdefault("VECTOR_STORE", "memory")
 os.environ.setdefault("GRAPH_STORE", "memory")
 os.environ.setdefault("DATABASE_URL", "sqlite:///./data/test.db")
 os.environ.setdefault("REDIS_URL", "")  # → fakeredis
-os.environ.setdefault("JWT_SECRET", "test-secret-do-not-use-in-prod")
+os.environ.setdefault("JWT_SECRET", "test-secret-do-not-use-in-prod-32ch")
 
 
 @pytest.fixture(autouse=True)

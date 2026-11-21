@@ -5,10 +5,13 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.auth import router as auth_router
 from app.api.health import router as health_router
 from app.core.config import get_settings
 from app.core.health import register_check
 from app.core.logging import configure_logging, get_logger
+from app.middleware.audit import AuditMiddleware
+from app.middleware.rate_limit import RateLimitMiddleware
 from app.middleware.request_context import RequestContextMiddleware
 
 logger = get_logger(__name__)
@@ -35,6 +38,11 @@ async def lifespan(app: FastAPI):
     with factory() as session:
         seed(session)
 
+    # Phase 3: Redis readiness check.
+    from app.core.redis_client import register_redis_check  # noqa: PLC0415
+
+    register_redis_check()
+
     logger.info("Startup complete")
     yield
     logger.info("NovaEnterprise backend stopping")
@@ -53,7 +61,8 @@ def create_app() -> FastAPI:
     )
 
     # Middleware order (outermost first = executes first):
-    # CORS → RequestContext (→ rate-limit in P3 → audit in P3)
+    # CORS → RequestContext → RateLimit → Audit
+    # With Starlette's add_middleware (insert-at-0 + reversed build), first added = outermost.
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins,
@@ -63,9 +72,13 @@ def create_app() -> FastAPI:
         expose_headers=["X-Request-ID"],
     )
     app.add_middleware(RequestContextMiddleware)
+    app.add_middleware(RateLimitMiddleware)
+    app.add_middleware(AuditMiddleware)
 
     # Health routes are unprefixed (not under /api/v1)
     app.include_router(health_router)
+    # Auth routes under /api/v1/auth
+    app.include_router(auth_router)
 
     return app
 
