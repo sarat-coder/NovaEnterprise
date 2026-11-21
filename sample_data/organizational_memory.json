@@ -1,0 +1,65 @@
+{
+  "fiscal_calendar": {
+    "description": "NovaEnterprise fiscal year aligns with the calendar year. Quarters are defined as follows.",
+    "quarters": {
+      "Q1": {"start_month": 1, "end_month": 3, "label": "January – March"},
+      "Q2": {"start_month": 4, "end_month": 6, "label": "April – June"},
+      "Q3": {"start_month": 7, "end_month": 9, "label": "July – September"},
+      "Q4": {"start_month": 10, "end_month": 12, "label": "October – December"}
+    },
+    "note": "When a question refers to 'last quarter', resolve it to the most recently completed quarter relative to today."
+  },
+  "sla_definitions": {
+    "tier-1": {
+      "availability_target": "99.99%",
+      "max_planned_downtime_minutes_per_month": 5,
+      "incident_response_time_minutes": 5,
+      "escalation_path": "on-call → team lead → VP Engineering"
+    },
+    "tier-2": {
+      "availability_target": "99.9%",
+      "max_planned_downtime_minutes_per_month": 44,
+      "incident_response_time_minutes": 15,
+      "escalation_path": "on-call → team lead"
+    }
+  },
+  "severity_definitions": {
+    "SEV1": {
+      "label": "Critical",
+      "criteria": "Complete service outage OR data loss OR security breach OR revenue impact > $500K/hour",
+      "response_time_minutes": 5,
+      "bridge_required": true
+    },
+    "SEV2": {
+      "label": "Major",
+      "criteria": "Significant degradation affecting >10% of users OR revenue impact $50K–$500K/hour",
+      "response_time_minutes": 15,
+      "bridge_required": true
+    },
+    "SEV3": {
+      "label": "Minor",
+      "criteria": "Limited degradation, workaround available, revenue impact < $50K/hour",
+      "response_time_minutes": 60,
+      "bridge_required": false
+    }
+  },
+  "data_retention_policy": {
+    "customer_pii": "7 years from contract end",
+    "audit_logs": "5 years",
+    "incident_records": "5 years",
+    "research_sessions": "90 days",
+    "uploaded_documents": "Until explicitly deleted by an admin"
+  },
+  "on_call_rotation": {
+    "primary_on_call_schedule": "PagerDuty schedule ID: P-NOVA-PRIMARY",
+    "escalation_on_call_schedule": "PagerDuty schedule ID: P-NOVA-ESC",
+    "rotation_length_days": 7,
+    "handoff_time": "09:00 UTC Monday"
+  },
+  "key_contacts": {
+    "payments_oncall": "payments-oncall@novaenterprise.internal",
+    "sre_oncall": "sre-oncall@novaenterprise.internal",
+    "security": "security@novaenterprise.internal",
+    "legal": "legal@novaenterprise.internal"
+  }
+}

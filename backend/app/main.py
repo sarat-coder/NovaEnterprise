@@ -20,9 +20,20 @@ async def lifespan(app: FastAPI):
     configure_logging(settings.log_level)
     logger.info("NovaEnterprise backend starting", extra={"env": settings.app_env})
 
-    # Phase 1: register the application-level readiness check.
-    # Later phases add their own (database, redis, vector_store, graph_store, llm).
+    # Phase 1: application-level readiness check.
     register_check("app", lambda: {"status": "ok", "detail": "fastapi"})
+
+    # Phase 2: initialise database (create tables) and seed sample data.
+    from app.core.db import (
+        get_session_factory,  # noqa: PLC0415
+        init_db,  # noqa: PLC0415
+    )
+    from app.services.seed_service import seed  # noqa: PLC0415
+
+    init_db()
+    factory = get_session_factory()
+    with factory() as session:
+        seed(session)
 
     logger.info("Startup complete")
     yield

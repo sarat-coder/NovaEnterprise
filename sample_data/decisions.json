@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "adr_id": "ADR-001",
+    "title": "Adopt circuit-breaker pattern for all external payment processor calls",
+    "status": "accepted",
+    "context": "INC-2031 and INC-2026 demonstrated that our integration with the payment processor has no graceful degradation. When the processor is slow or unavailable, failures cascade through the entire Payments API.",
+    "decision_text": "Implement a circuit-breaker (half-open / open / closed states) around all payment processor HTTP calls using the Resilience4j library. When the circuit opens, return a 503 with a Retry-After header rather than a timeout. Alert on circuit open events.",
+    "consequences": "Requires a 2-week implementation sprint. Payment failures become fast and explicit rather than slow timeouts. Customers see a clear error message instead of a hanging request. Reduces MTTR for processor outages significantly.",
+    "decided_at": "2026-08-02",
+    "incident_ids": ["INC-2031", "INC-2026"]
+  },
+  {
+    "id": 2,
+    "adr_id": "ADR-002",
+    "title": "Require contract testing for all third-party API integrations",
+    "status": "accepted",
+    "context": "INC-2031 was caused by the payment processor silently changing their API contract. We had no automated check that would have caught the breaking change before it reached production.",
+    "decision_text": "All integrations with third-party APIs must have a Pact contract test that runs in CI. The contract is published to PactBroker. When a provider breaks the contract, the CI pipeline fails and a Slack alert is sent to the owning team. No integration is deployed without a passing contract test.",
+    "consequences": "Increases CI time by 3–5 minutes per integration test. Requires PactBroker deployment (assigned to SRE). Will surface breaking changes at code-review time rather than production. Reduces the class of incidents caused by upstream API changes.",
+    "decided_at": "2026-08-02",
+    "incident_ids": ["INC-2031"]
+  },
+  {
+    "id": 3,
+    "adr_id": "ADR-003",
+    "title": "Use UUID v7 for idempotency keys in Billing Engine",
+    "status": "accepted",
+    "context": "INC-2035 caused 27 customers to be charged twice because idempotency keys were generated from millisecond timestamps, which collide under rapid retries.",
+    "decision_text": "Replace timestamp-based idempotency keys with UUID v7 (time-ordered, 128-bit). UUID v7 provides monotonic ordering with enough entropy to make collision probability negligible. Update the Billing Engine charge retry logic to generate a new UUID v7 for each retry attempt.",
+    "consequences": "UUID v7 idempotency keys are 36 characters vs 13-digit timestamps. Database index size increases marginally. Collision probability drops from ~1/1000 (ms timestamps under load) to 1/2^122. Duplicate-charge incidents of this class become impossible.",
+    "decided_at": "2026-09-15",
+    "incident_ids": ["INC-2035"]
+  },
+  {
+    "id": 4,
+    "adr_id": "ADR-004",
+    "title": "Pin Kubernetes network policy changes to a change-review process",
+    "status": "accepted",
+    "context": "INC-2036 was caused by a Kubernetes network policy update that was not reviewed or tested before being applied to production.",
+    "decision_text": "Network policy changes must go through a formal change-review process: PR opened on the infra-configs repo, reviewed by at least one SRE lead and one member of the impacted service team, deployed to staging first with a 30-minute soak, then promoted to production during business hours only.",
+    "consequences": "Increases time-to-deploy for network policy changes from minutes to 1–2 days. Reduces the risk of inadvertent connectivity outages. Requires discipline to maintain the change-review SLA.",
+    "decided_at": "2026-09-25",
+    "incident_ids": ["INC-2036"]
+  },
+  {
+    "id": 5,
+    "adr_id": "ADR-005",
+    "title": "Implement automated certificate expiry alerts 30 days before rotation",
+    "status": "accepted",
+    "context": "INC-2010 occurred because an automated certificate rotation script lacked expiry validation. The expired cert remained in the rotation pool undetected.",
+    "decision_text": "Add a Prometheus certificate-expiry exporter to all services using TLS certificates. Alert at 30 days and 7 days before expiry. Certificate rotation scripts must validate expiry before adding a certificate to the rotation pool, failing loudly if the new cert is already expired.",
+    "consequences": "Requires deploying and maintaining the cert-exporter sidecar in all relevant pods. Eliminates the class of incidents caused by expired-cert blind spots.",
+    "decided_at": "2026-02-01",
+    "incident_ids": ["INC-2010"]
+  },
+  {
+    "id": 6,
+    "adr_id": "ADR-006",
+    "title": "Enforce query time-limits and read replicas for analytical queries",
+    "status": "accepted",
+    "context": "INC-2021 and INC-2038 were both caused by long-running analytical queries blocking operational workloads.",
+    "decision_text": "All analytical queries must run against read replicas, not the primary database. A 300-second (5-minute) statement_timeout is enforced at the connection level for the analytics role. Queries exceeding this limit are killed and logged.",
+    "consequences": "Analytical queries that currently exceed 5 minutes must be optimized or moved to the warehouse. Short-term disruption for the Analytics and Data Platform teams. Long-term prevention of analytical queries impacting operational performance.",
+    "decided_at": "2026-04-10",
+    "incident_ids": ["INC-2021", "INC-2038"]
+  },
+  {
+    "id": 7,
+    "adr_id": "ADR-007",
+    "title": "Adopt contract versioning and canary deployments for all Tier-1 service APIs",
+    "status": "accepted",
+    "context": "Multiple incidents (INC-2033, INC-2031) show that schema and API changes break downstream consumers when deployed without coordination.",
+    "decision_text": "Tier-1 services must version their APIs. Breaking changes are introduced on a new version while the previous version is kept live for at least 30 days. All deployments use canary releases: 5% traffic for 15 minutes, 25% for 30 minutes, then full rollout. Canaries are automatically rolled back if error rate > 1%.",
+    "consequences": "Increases operational complexity. Requires teams to maintain two API versions simultaneously during migration windows. Significantly reduces blast radius of breaking changes.",
+    "decided_at": "2026-08-20",
+    "incident_ids": ["INC-2031", "INC-2033"]
+  },
+  {
+    "id": 8,
+    "adr_id": "ADR-008",
+    "title": "Implement SMS gateway fallback with multi-provider routing",
+    "status": "accepted",
+    "context": "INC-2017 showed that our single-provider SMS architecture has no fallback when the primary gateway applies rate limiting.",
+    "decision_text": "Integrate a secondary SMS gateway (Vonage as backup to Twilio). Implement a priority router: attempt primary gateway; if rate-limited (429) or unavailable, switch to secondary. Alert when the secondary is active for more than 5 minutes.",
+    "consequences": "Increases monthly SMS costs by approximately 8% (secondary has higher per-message rate). Eliminates single point of failure for critical transactional notifications.",
+    "decided_at": "2026-03-01",
+    "incident_ids": ["INC-2017"]
+  }
+]

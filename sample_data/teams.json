@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Payments Platform",
+    "slug": "payments-platform",
+    "description": "Owns all payment processing infrastructure, Payments API, and Billing Engine. Responsible for PCI-DSS compliance and payment gateway integrations.",
+    "lead_email": "alice.chen@novaenterprise.internal"
+  },
+  {
+    "id": 2,
+    "name": "Identity",
+    "slug": "identity",
+    "description": "Owns authentication, authorisation, and the Identity Service. Manages SSO integrations and RBAC policies across the platform.",
+    "lead_email": "bob.sharma@novaenterprise.internal"
+  },
+  {
+    "id": 3,
+    "name": "Data Platform",
+    "slug": "data-platform",
+    "description": "Owns the Data Pipeline, analytics infrastructure, and data warehouse. Responsible for data quality, ETL reliability, and the customer-facing Analytics Dashboard.",
+    "lead_email": "carol.nguyen@novaenterprise.internal"
+  },
+  {
+    "id": 4,
+    "name": "Customer Success",
+    "slug": "customer-success",
+    "description": "Owns the Customer Portal and Notification Service. Responsible for customer-facing features, onboarding flows, and SLA monitoring.",
+    "lead_email": "david.okonkwo@novaenterprise.internal"
+  },
+  {
+    "id": 5,
+    "name": "SRE",
+    "slug": "sre",
+    "description": "Site Reliability Engineering. Owns the Search Service, shared observability stack, incident response process, and on-call rotation. Partners with every product team on reliability.",
+    "lead_email": "eva.kowalski@novaenterprise.internal"
+  },
+  {
+    "id": 6,
+    "name": "Analytics",
+    "slug": "analytics",
+    "description": "Owns business intelligence tooling, the Analytics Dashboard, and self-service reporting infrastructure. Partners with Data Platform on data modelling.",
+    "lead_email": "frank.ibrahim@novaenterprise.internal"
+  }
+]
