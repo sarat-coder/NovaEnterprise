@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Payments API v4 Migration",
+    "slug": "payments-api-v4-migration",
+    "description": "Migrate the Payments API integration from processor v3 to v4 endpoints, implement circuit-breaker, and add contract tests. Addresses ADR-001, ADR-002.",
+    "status": "in-progress",
+    "team_id": 1,
+    "start_date": "2026-08-05",
+    "end_date": "2026-10-31"
+  },
+  {
+    "id": 2,
+    "name": "Billing Reliability Hardening",
+    "slug": "billing-reliability-hardening",
+    "description": "Replace timestamp-based idempotency keys with UUID v7, add duplicate-charge detection, and implement billing reconciliation reports. Addresses ADR-003.",
+    "status": "completed",
+    "team_id": 1,
+    "start_date": "2026-09-05",
+    "end_date": "2026-10-15"
+  },
+  {
+    "id": 3,
+    "name": "Certificate Lifecycle Automation",
+    "slug": "cert-lifecycle-automation",
+    "description": "Deploy cert-expiry exporter, integrate alerts into PagerDuty, and harden the certificate rotation scripts with validation guards. Addresses ADR-005.",
+    "status": "completed",
+    "team_id": 5,
+    "start_date": "2026-02-01",
+    "end_date": "2026-03-15"
+  },
+  {
+    "id": 4,
+    "name": "Analytics Query Governance",
+    "slug": "analytics-query-governance",
+    "description": "Enforce read-replica routing and statement timeouts for all analytical queries. Migrate long-running reports to the data warehouse. Addresses ADR-006.",
+    "status": "in-progress",
+    "team_id": 3,
+    "start_date": "2026-05-01",
+    "end_date": "2026-11-30"
+  },
+  {
+    "id": 5,
+    "name": "SMS Multi-Provider Integration",
+    "slug": "sms-multi-provider",
+    "description": "Integrate Vonage as a secondary SMS provider and implement the priority router. Addresses ADR-008.",
+    "status": "completed",
+    "team_id": 4,
+    "start_date": "2026-03-01",
+    "end_date": "2026-04-15"
+  },
+  {
+    "id": 6,
+    "name": "Canary Deployment Framework",
+    "slug": "canary-deployment-framework",
+    "description": "Build the canary deployment pipeline for all Tier-1 services, including automated rollback on error rate threshold. Addresses ADR-007.",
+    "status": "in-progress",
+    "team_id": 5,
+    "start_date": "2026-09-01",
+    "end_date": "2026-12-31"
+  }
+]

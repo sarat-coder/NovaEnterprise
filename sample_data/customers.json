@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Meridian Financial Group",
+    "slug": "meridian-financial",
+    "segment": "enterprise",
+    "industry": "Financial Services",
+    "contract_tier": "platinum"
+  },
+  {
+    "id": 2,
+    "name": "Apex Retail Corp",
+    "slug": "apex-retail",
+    "segment": "enterprise",
+    "industry": "Retail",
+    "contract_tier": "gold"
+  },
+  {
+    "id": 3,
+    "name": "NovaTech Solutions",
+    "slug": "novatech-solutions",
+    "segment": "enterprise",
+    "industry": "Technology",
+    "contract_tier": "platinum"
+  },
+  {
+    "id": 4,
+    "name": "Sunrise Healthcare",
+    "slug": "sunrise-healthcare",
+    "segment": "mid-market",
+    "industry": "Healthcare",
+    "contract_tier": "silver"
+  },
+  {
+    "id": 5,
+    "name": "Coastal Logistics",
+    "slug": "coastal-logistics",
+    "segment": "mid-market",
+    "industry": "Logistics",
+    "contract_tier": "silver"
+  },
+  {
+    "id": 6,
+    "name": "GreenLeaf Education",
+    "slug": "greenleaf-education",
+    "segment": "mid-market",
+    "industry": "Education",
+    "contract_tier": "silver"
+  },
+  {
+    "id": 7,
+    "name": "Pinnacle Media",
+    "slug": "pinnacle-media",
+    "segment": "mid-market",
+    "industry": "Media",
+    "contract_tier": "bronze"
+  },
+  {
+    "id": 8,
+    "name": "Swift Deliveries",
+    "slug": "swift-deliveries",
+    "segment": "smb",
+    "industry": "Logistics",
+    "contract_tier": "starter"
+  },
+  {
+    "id": 9,
+    "name": "BlueSky Analytics",
+    "slug": "bluesky-analytics",
+    "segment": "smb",
+    "industry": "Technology",
+    "contract_tier": "starter"
+  },
+  {
+    "id": 10,
+    "name": "Harbor Hospitality",
+    "slug": "harbor-hospitality",
+    "segment": "smb",
+    "industry": "Hospitality",
+    "contract_tier": "starter"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Payments API",
+    "slug": "payments-api",
+    "description": "Core payment processing REST API. Handles charge, refund, and subscription operations. Tier-1 service; any degradation triggers an on-call page.",
+    "owner_team_id": 1,
+    "tier": "tier-1"
+  },
+  {
+    "id": 2,
+    "name": "Identity Service",
+    "slug": "identity-service",
+    "description": "Authentication and authorisation service. Issues JWTs, manages RBAC roles, and handles SSO federation. Tier-1 service.",
+    "owner_team_id": 2,
+    "tier": "tier-1"
+  },
+  {
+    "id": 3,
+    "name": "Data Pipeline",
+    "slug": "data-pipeline",
+    "description": "Batch and streaming ETL pipelines that move data from operational stores to the analytics warehouse. Tier-2 service.",
+    "owner_team_id": 3,
+    "tier": "tier-2"
+  },
+  {
+    "id": 4,
+    "name": "Analytics Dashboard",
+    "slug": "analytics-dashboard",
+    "description": "Customer-facing business intelligence dashboard. Renders charts and reports backed by the analytics warehouse. Tier-2 service.",
+    "owner_team_id": 6,
+    "tier": "tier-2"
+  },
+  {
+    "id": 5,
+    "name": "Notification Service",
+    "slug": "notification-service",
+    "description": "Sends transactional email, SMS, and push notifications. Tier-2 service; alert delivery SLA is 2 minutes.",
+    "owner_team_id": 4,
+    "tier": "tier-2"
+  },
+  {
+    "id": 6,
+    "name": "Billing Engine",
+    "slug": "billing-engine",
+    "description": "Subscription lifecycle management, invoice generation, and dunning logic. Calls the Payments API for all charge operations. Tier-1 service.",
+    "owner_team_id": 1,
+    "tier": "tier-1"
+  },
+  {
+    "id": 7,
+    "name": "Customer Portal",
+    "slug": "customer-portal",
+    "description": "Self-service web portal for account management, usage dashboards, and support ticket submission. Tier-2 service.",
+    "owner_team_id": 4,
+    "tier": "tier-2"
+  },
+  {
+    "id": 8,
+    "name": "Search Service",
+    "slug": "search-service",
+    "description": "Full-text and semantic search API powering the in-product search bar and knowledge base. Tier-2 service owned by SRE.",
+    "owner_team_id": 5,
+    "tier": "tier-2"
+  }
+]

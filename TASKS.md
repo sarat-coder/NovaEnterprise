@@ -34,11 +34,11 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P2-1 · SQLAlchemy models and the shared `Evidence` schema | `feature/sqlalchemy-models-evidence` | Pending ❌ |
-| P2-2 · Postgres schema, RLS policies, and migrations | `feature/postgres-schema-rls` | Pending ❌ |
-| P2-3 · Repository layer | `feature/repository-layer` | Pending ❌ |
-| P2-4 · Sample data JSON and the 15 documents (including the hostile vendor note) | `feature/sample-data-documents` | Pending ❌ |
-| P2-5 · Seed service and lifespan bootstrap | `feature/seed-bootstrap` | Pending ❌ |
+| P2-1 · SQLAlchemy models and the shared `Evidence` schema | `feature/sqlalchemy-models-evidence` | Completed ✅ |
+| P2-2 · Postgres schema, RLS policies, and migrations | `feature/postgres-schema-rls` | Completed ✅ |
+| P2-3 · Repository layer | `feature/repository-layer` | Completed ✅ |
+| P2-4 · Sample data JSON and the 15 documents (including the hostile vendor note) | `feature/sample-data-documents` | Completed ✅ |
+| P2-5 · Seed service and lifespan bootstrap | `feature/seed-bootstrap` | Completed ✅ |
 
 ---
 
@@ -282,7 +282,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | Phase | Name | Tasks | Completed |
 |-------|------|-------|-----------|
 | 1 | Runtime skeleton | 5 | 5 |
-| 2 | Persistence and sample data | 5 | 0 |
+| 2 | Persistence and sample data | 5 | 5 |
 | 3 | Identity and request guards | 4 | 0 |
 | 4 | AI providers and guardrails | 4 | 0 |
 | 5 | API contract and browse API | 3 | 0 |
@@ -296,4 +296,4 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **0** |
+| **Total** | | **67** | **10** |
