@@ -49,10 +49,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P3-1 · JWT and `require_role` (viewer < analyst < admin) | `feature/jwt-rbac` | Pending ❌ |
-| P3-2 · Demo login routes and tokens | `feature/auth-demo-login` | Pending ❌ |
-| P3-3 · Redis client, fakeredis fallback, and token-bucket rate limit | `feature/redis-rate-limit` | Pending ❌ |
-| P3-4 · Audit middleware and middleware order | `feature/audit-middleware` | Pending ❌ |
+| P3-1 · JWT and `require_role` (viewer < analyst < admin) | `feature/jwt-rbac` | Completed ✅ |
+| P3-2 · Demo login routes and tokens | `feature/auth-demo-login` | Completed ✅ |
+| P3-3 · Redis client, fakeredis fallback, and token-bucket rate limit | `feature/redis-rate-limit` | Completed ✅ |
+| P3-4 · Audit middleware and middleware order | `feature/audit-middleware` | Completed ✅ |
 
 ---
 
@@ -283,7 +283,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 |-------|------|-------|-----------|
 | 1 | Runtime skeleton | 5 | 5 |
 | 2 | Persistence and sample data | 5 | 5 |
-| 3 | Identity and request guards | 4 | 0 |
+| 3 | Identity and request guards | 4 | 4 |
 | 4 | AI providers and guardrails | 4 | 0 |
 | 5 | API contract and browse API | 3 | 0 |
 | 6 | Vector RAG | 4 | 0 |
