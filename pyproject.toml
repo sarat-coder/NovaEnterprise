@@ -1,0 +1,47 @@
+[project]
+name = "novaenterprise"
+version = "0.1.0"
+description = "Enterprise Knowledge & Decision Intelligence Platform"
+readme = "README.md"
+authors = [
+    { name = "Sarat Kumar", email = "saratsaisanama@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic-settings>=2.6.0",
+    "pydantic>=2.9.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "httpx>=0.27",
+    "anyio[asyncio]>=4.6",
+    "ruff>=0.9.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".claude/", "Docs/", "internal/", "*.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "W"]
+ignore = [
+    "B008",   # do not perform function calls in default arguments (FastAPI Depends pattern)
+    "UP007",  # use X | Y instead of Optional — Pydantic v2 still benefits from Optional
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "agents", "rag", "memory", "integrations"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
