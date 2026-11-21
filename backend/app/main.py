@@ -6,7 +6,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.auth import router as auth_router
+from app.api.customers import router as customers_router
+from app.api.decisions import router as decisions_router
 from app.api.health import router as health_router
+from app.api.incidents import router as incidents_router
 from app.core.config import get_settings
 from app.core.health import register_check
 from app.core.logging import configure_logging, get_logger
@@ -84,6 +87,10 @@ def create_app() -> FastAPI:
     app.include_router(health_router)
     # Auth routes under /api/v1/auth
     app.include_router(auth_router)
+    # Browse API routes (Phase 5)
+    app.include_router(customers_router)
+    app.include_router(incidents_router)
+    app.include_router(decisions_router)
 
     return app
 

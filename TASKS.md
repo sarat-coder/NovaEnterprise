@@ -77,9 +77,9 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P5-1 · `docs/API_CONTRACT.md` and `docs/FRONTEND_ASSUMPTIONS.md` | `feature/api-contract-docs` | Pending ❌ |
-| P5-2 · Browse API: customers, incidents, and decisions | `feature/api-browse-records` | Pending ❌ |
-| P5-3 · Research request and response schemas | `feature/research-schemas` | Pending ❌ |
+| P5-1 · `docs/API_CONTRACT.md` and `docs/FRONTEND_ASSUMPTIONS.md` | `feature/api-contract-docs` | Completed ✅ |
+| P5-2 · Browse API: customers, incidents, and decisions | `feature/api-browse-records` | Completed ✅ |
+| P5-3 · Research request and response schemas | `feature/research-schemas` | Completed ✅ |
 
 ---
 
@@ -285,7 +285,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 2 | Persistence and sample data | 5 | 5 |
 | 3 | Identity and request guards | 4 | 4 |
 | 4 | AI providers and guardrails | 4 | 4 |
-| 5 | API contract and browse API | 3 | 0 |
+| 5 | API contract and browse API | 3 | 3 |
 | 6 | Vector RAG | 4 | 0 |
 | 7 | Graph RAG | 4 | 0 |
 | 8 | SQL retrieval | 3 | 0 |
