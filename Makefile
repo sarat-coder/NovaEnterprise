@@ -22,7 +22,7 @@ UV       := uv
 BACKEND  := backend
 PORT     := 8001
 
-.PHONY: setup backend frontend test lint ingest seed-graph demo help
+.PHONY: setup backend frontend test lint ingest seed-graph demo evaluate mcp help
 
 ## setup: create .venv with uv, install all dependencies, copy .env if missing
 setup:
@@ -68,6 +68,18 @@ demo:
 	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
 	LLM_PROVIDER=fake VECTOR_STORE=memory GRAPH_STORE=memory \
 	$(UV) run python scripts/demo.py $(if $(QUESTION),--question "$(QUESTION)",)
+
+## evaluate: run offline evaluation suite and print metric scores
+evaluate:
+	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
+	LLM_PROVIDER=fake VECTOR_STORE=memory GRAPH_STORE=memory \
+	$(UV) run python -m tests.evaluation.evaluate
+
+## mcp: start the MCP server over stdio (pipe a JSON-RPC message on stdin)
+mcp:
+	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
+	LLM_PROVIDER=fake VECTOR_STORE=memory GRAPH_STORE=memory \
+	$(UV) run python -m integrations.mcp_server
 
 ## help: show available targets
 help:

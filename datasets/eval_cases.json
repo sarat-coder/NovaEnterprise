@@ -1,0 +1,97 @@
+[
+  {
+    "id": "eval-001",
+    "question": "Which customers were impacted by the Payments API last quarter, what incidents occurred, which teams own those services, and what decisions were taken to prevent recurrence?",
+    "category": "canonical",
+    "expected": {
+      "strategies": ["graph", "sql", "vector"],
+      "min_evidence_count": 4,
+      "must_contain_entities": ["Payments API", "Payments Platform"],
+      "must_cite_sources": true,
+      "complexity": "complex",
+      "min_subquestions": 2
+    },
+    "ground_truth": {
+      "relevant_doc_ids": [
+        "postmortem-inc-2031-payments-api-outage",
+        "adr-002-payments-circuit-breaker",
+        "quarterly-reliability-summary-q3-2024"
+      ],
+      "relevant_sql_tables": ["incidents", "services"],
+      "relevant_graph_traversals": ["impacted_customers", "owning_teams"]
+    }
+  },
+  {
+    "id": "eval-002",
+    "question": "What is our data retention policy?",
+    "category": "simple",
+    "expected": {
+      "strategies": ["vector"],
+      "min_evidence_count": 1,
+      "must_contain_entities": ["data retention"],
+      "must_cite_sources": true,
+      "complexity": "simple",
+      "min_subquestions": 1,
+      "max_subquestions": 1
+    },
+    "ground_truth": {
+      "relevant_doc_ids": ["policy-data-retention"],
+      "relevant_sql_tables": [],
+      "relevant_graph_traversals": []
+    }
+  },
+  {
+    "id": "eval-003",
+    "question": "Which incidents occurred in Q3 2024 and which services were affected?",
+    "category": "sql_graph",
+    "expected": {
+      "strategies": ["sql", "graph"],
+      "min_evidence_count": 2,
+      "must_contain_entities": ["Q3 2024"],
+      "must_cite_sources": true,
+      "complexity": "moderate",
+      "min_subquestions": 1
+    },
+    "ground_truth": {
+      "relevant_doc_ids": [],
+      "relevant_sql_tables": ["incidents", "services"],
+      "relevant_graph_traversals": ["affected_services"]
+    }
+  },
+  {
+    "id": "eval-004",
+    "question": "Which team owns the Identity Service and what is their on-call policy?",
+    "category": "graph_doc",
+    "expected": {
+      "strategies": ["graph", "vector"],
+      "min_evidence_count": 2,
+      "must_contain_entities": ["Identity Service"],
+      "must_cite_sources": true,
+      "complexity": "moderate",
+      "min_subquestions": 1
+    },
+    "ground_truth": {
+      "relevant_doc_ids": ["policy-on-call-rotation"],
+      "relevant_sql_tables": [],
+      "relevant_graph_traversals": ["owning_teams"]
+    }
+  },
+  {
+    "id": "eval-005",
+    "question": "What architectural decision was made regarding circuit breakers after the Payments API outage?",
+    "category": "document",
+    "expected": {
+      "strategies": ["vector"],
+      "min_evidence_count": 1,
+      "must_contain_entities": ["circuit breaker", "Payments API"],
+      "must_cite_sources": true,
+      "complexity": "simple",
+      "min_subquestions": 1
+    },
+    "ground_truth": {
+      "relevant_doc_ids": ["adr-002-payments-circuit-breaker"],
+      "relevant_sql_tables": [],
+      "relevant_graph_traversals": []
+    }
+  }
+]
