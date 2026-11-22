@@ -22,7 +22,7 @@ UV       := uv
 BACKEND  := backend
 PORT     := 8001
 
-.PHONY: setup backend test lint ingest seed-graph demo help
+.PHONY: setup backend frontend test lint ingest seed-graph demo help
 
 ## setup: create .venv with uv, install all dependencies, copy .env if missing
 setup:
@@ -58,6 +58,10 @@ seed-graph:
 	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
 	GRAPH_STORE=memory LLM_PROVIDER=fake VECTOR_STORE=memory \
 	$(UV) run python -m rag.graph_seed
+
+## frontend: start Next.js dev server on :3001
+frontend:
+	cd frontend && npm run dev
 
 ## demo: run canonical question end-to-end (or QUESTION=... for custom)
 demo:
