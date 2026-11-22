@@ -25,7 +25,7 @@ Legend: ✅ done · ❌ not done · ➖ not applicable
 | 3 | Identity and request guards | ❌ | ❌ | Supabase Auth (optional), real Redis | ❌ |
 | 4 | AI providers and guardrails | ❌ | ❌ | LLM API key for non-fake providers | ❌ |
 | 5 | API contract and browse API | ❌ | ❌ | ➖ | ❌ |
-| 6 | Vector RAG | ❌ | ❌ | Qdrant (Docker or Cloud) | ❌ |
+| 6 | Vector RAG | ✅ | ✅ | Qdrant (Docker or Cloud) | ❌ |
 | 7 | Graph RAG | ❌ | ❌ | Neo4j (Docker or Aura) | ❌ |
 | 8 | SQL retrieval | ❌ | ❌ | ➖ | ❌ |
 | 9 | Ingestion and document management | ❌ | ❌ | ➖ | ❌ |
@@ -108,3 +108,4 @@ Legend: ✅ done · ❌ not done · ➖ not applicable
 |------|--------|
 | 2026-11-21 | Spec files written (`Docs/`, `CLAUDE.md`), `TASKS.md` created, uv project initialised, `.gitignore`, README, GitHub remote, `.claude/` setup, `PLAN.md`, `PLAN_PHASE.md`, this file |
 | 2026-11-21 | Phase 1 complete — `backend/app/` skeleton, `core/config.py`, `core/logging.py`, `core/health.py`, `middleware/request_context.py`, `api/health.py`, `app/main.py`, `tests/conftest.py`, 8 tests, Makefile, ruff config, `.env.example`, CI workflow. 8/8 pass. Phase docs written. |
+| 2026-11-22 | Phase 6 complete — `rag/chunking.py` (parse + chunk md/txt/pdf), `rag/vector_store.py` (VectorStoreService protocol + MemoryVectorStore + BM25), `rag/qdrant_adapter.py`, `rag/retriever.py` (semantic + BM25 + RRF + rerank → Evidence). `pypdf` added to deps. Health check: `vector_store: ok (memory)`. 162/162 pass offline. Phase docs written. |

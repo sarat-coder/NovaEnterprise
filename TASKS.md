@@ -90,10 +90,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P6-1 · Document parsing (md, txt, PDF) and chunking | `feature/rag-parsing-chunking` | Pending ❌ |
-| P6-2 · `VectorStoreService` protocol and memory adapter | `feature/rag-vector-store-memory` | Pending ❌ |
-| P6-3 · Qdrant adapter and readiness check | `feature/rag-vector-store-qdrant` | Pending ❌ |
-| P6-4 · Hybrid retriever: semantic + BM25 + RRF + rerank | `feature/rag-hybrid-retriever` | Pending ❌ |
+| P6-1 · Document parsing (md, txt, PDF) and chunking | `feature/rag-parsing-chunking` | Completed ✅ |
+| P6-2 · `VectorStoreService` protocol and memory adapter | `feature/rag-vector-store-memory` | Completed ✅ |
+| P6-3 · Qdrant adapter and readiness check | `feature/rag-vector-store-qdrant` | Completed ✅ |
+| P6-4 · Hybrid retriever: semantic + BM25 + RRF + rerank | `feature/rag-hybrid-retriever` | Completed ✅ |
 
 ---
 
@@ -286,7 +286,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 3 | Identity and request guards | 4 | 4 |
 | 4 | AI providers and guardrails | 4 | 4 |
 | 5 | API contract and browse API | 3 | 3 |
-| 6 | Vector RAG | 4 | 0 |
+| 6 | Vector RAG | 4 | 4 |
 | 7 | Graph RAG | 4 | 0 |
 | 8 | SQL retrieval | 3 | 0 |
 | 9 | Ingestion and document management | 6 | 0 |
@@ -296,4 +296,4 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **14** |
+| **Total** | | **67** | **18** |
