@@ -33,7 +33,7 @@ git checkout -b project_branch
 5. git commit -m "project_name completed"
 6.git push -u origin project_branch
 7.open the remote link from the terminal
-8. pull from project branch to development branch in git hub
+8. pull request from project branch to development branch in git hub
 9. merge the branch
 
 Basic Prompt for each tasks:

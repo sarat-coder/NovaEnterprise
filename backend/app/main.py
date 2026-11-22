@@ -51,6 +51,11 @@ async def lifespan(app: FastAPI):
 
     register_llm_check()
 
+    # Phase 6: Vector store readiness check.
+    from rag.vector_store import register_vector_store_check  # noqa: PLC0415
+
+    register_vector_store_check()
+
     logger.info("Startup complete")
     yield
     logger.info("NovaEnterprise backend stopping")

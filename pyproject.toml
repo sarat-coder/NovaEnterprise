@@ -20,6 +20,8 @@ dependencies = [
     # Phase 4 — AI providers and guardrails
     "langchain-core>=0.3.0",
     "langgraph>=0.2.0",
+    # Phase 6 — Vector RAG
+    "pypdf>=4.0.0",
 ]
 
 [dependency-groups]
