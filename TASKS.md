@@ -147,10 +147,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P10-1 · Organizational memory scope (fiscal calendar and shared facts) | `feature/memory-organizational` | Pending ❌ |
-| P10-2 · Conversation memory in Redis | `feature/memory-conversation` | Pending ❌ |
-| P10-3 · The other two scopes (confirm their names first, see CLAUDE.md §16) | `feature/memory-additional-scopes` | Pending ❌ |
-| P10-4 · Memory service and analyst-owned memory API | `feature/memory-service-api` | Pending ❌ |
+| P10-1 · Organizational memory scope (fiscal calendar and shared facts) | `feature/memory-organizational` | Completed ✅ |
+| P10-2 · Conversation memory in Redis | `feature/memory-conversation` | Completed ✅ |
+| P10-3 · The other two scopes (session + analyst) | `feature/memory-additional-scopes` | Completed ✅ |
+| P10-4 · Memory service and analyst-owned memory API | `feature/memory-service-api` | Completed ✅ |
 
 ---
 
@@ -290,10 +290,10 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 7 | Graph RAG | 4 | 4 |
 | 8 | SQL retrieval | 3 | 3 |
 | 9 | Ingestion and document management | 6 | 6 |
-| 10 | Memory | 4 | 0 |
+| 10 | Memory | 4 | 4 |
 | 11 | Research agents | 5 | 0 |
 | 12 | Workflow graph and research API | 5 | 0 |
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **22** |
+| **Total** | | **67** | **26** |
