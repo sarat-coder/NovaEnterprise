@@ -59,9 +59,11 @@ seed-graph:
 	GRAPH_STORE=memory LLM_PROVIDER=fake VECTOR_STORE=memory \
 	$(UV) run python -m rag.graph_seed
 
-## demo: run canonical question end-to-end — added in Phase 12
+## demo: run canonical question end-to-end (or QUESTION=... for custom)
 demo:
-	@echo "demo target is added in Phase 12"
+	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
+	LLM_PROVIDER=fake VECTOR_STORE=memory GRAPH_STORE=memory \
+	$(UV) run python scripts/demo.py $(if $(QUESTION),--question "$(QUESTION)",)
 
 ## help: show available targets
 help:

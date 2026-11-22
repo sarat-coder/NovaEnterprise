@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.auth import router as auth_router
+from app.api.research import router as research_router
 from app.api.customers import router as customers_router
 from app.api.decisions import router as decisions_router
 from app.api.documents import router as documents_router
@@ -110,6 +111,8 @@ def create_app() -> FastAPI:
     app.include_router(graph_router)
     # Memory API (Phase 10)
     app.include_router(memory_router)
+    # Research API (Phase 12)
+    app.include_router(research_router)
 
     return app
 
