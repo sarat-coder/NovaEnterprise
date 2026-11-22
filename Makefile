@@ -47,9 +47,11 @@ lint:
 	$(UV) run ruff check .
 	$(UV) run ruff format --check .
 
-## ingest: (re)index all sample documents — added in Phase 9
+## ingest: (re)index all sample documents into vector store + graph
 ingest:
-	@echo "ingest target is added in Phase 9"
+	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
+	LLM_PROVIDER=fake VECTOR_STORE=memory GRAPH_STORE=memory \
+	$(UV) run python -m rag.ingest
 
 ## seed-graph: build the in-memory graph from sample data (Phase 7)
 seed-graph:

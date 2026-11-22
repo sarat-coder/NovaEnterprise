@@ -22,6 +22,7 @@ dependencies = [
     "langgraph>=0.2.0",
     # Phase 6 — Vector RAG
     "pypdf>=4.0.0",
+    "python-multipart>=0.0.34",
 ]
 
 [dependency-groups]

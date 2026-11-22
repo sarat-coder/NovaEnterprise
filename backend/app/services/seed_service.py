@@ -269,9 +269,11 @@ def _seed_document_records(session: Session) -> None:
     if not docs_dir.exists():
         return
     for doc_path in sorted(docs_dir.glob("*.md")):
-        existing = session.execute(
-            select(DocumentRecord).where(DocumentRecord.filename == doc_path.name)
-        ).scalar_one_or_none()
+        existing = (
+            session.execute(select(DocumentRecord).where(DocumentRecord.filename == doc_path.name))
+            .scalars()
+            .first()
+        )
         if existing:
             continue
         content = doc_path.read_text(encoding="utf-8")

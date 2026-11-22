@@ -131,12 +131,12 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P9-1 · Entity and relationship extraction | `feature/rag-extraction` | Pending ❌ |
-| P9-2 · Ingest pipeline into vector, DB, and graph (`make ingest`) | `feature/rag-ingest-pipeline` | Pending ❌ |
-| P9-3 · `DocumentSource` protocol and mock adapters | `feature/integrations-document-sources` | Pending ❌ |
-| P9-4 · Documents API with upload validation (size limit and extension allowlist) | `feature/api-documents-upload` | Pending ❌ |
-| P9-5 · Approval service and admin-gated document delete | `feature/approval-document-delete` | Pending ❌ |
-| P9-6 · Knowledge graph API: browse and expand nodes | `feature/api-knowledge-graph` | Pending ❌ |
+| P9-1 · Entity and relationship extraction | `feature/rag-extraction` | Completed ✅ |
+| P9-2 · Ingest pipeline into vector, DB, and graph (`make ingest`) | `feature/rag-ingest-pipeline` | Completed ✅ |
+| P9-3 · `DocumentSource` protocol and mock adapters | `feature/integrations-document-sources` | Completed ✅ |
+| P9-4 · Documents API with upload validation (size limit and extension allowlist) | `feature/api-documents-upload` | Completed ✅ |
+| P9-5 · Approval service and admin-gated document delete | `feature/approval-document-delete` | Completed ✅ |
+| P9-6 · Knowledge graph API: browse and expand nodes | `feature/api-knowledge-graph` | Completed ✅ |
 
 ---
 
@@ -289,7 +289,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 6 | Vector RAG | 4 | 4 |
 | 7 | Graph RAG | 4 | 4 |
 | 8 | SQL retrieval | 3 | 3 |
-| 9 | Ingestion and document management | 6 | 0 |
+| 9 | Ingestion and document management | 6 | 6 |
 | 10 | Memory | 4 | 0 |
 | 11 | Research agents | 5 | 0 |
 | 12 | Workflow graph and research API | 5 | 0 |
