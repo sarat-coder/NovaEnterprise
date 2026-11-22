@@ -104,10 +104,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P7-1 · `GraphStoreService` protocol and memory adapter | `feature/graph-store-memory` | Pending ❌ |
-| P7-2 · Typed traversals that also return their Cypher | `feature/graph-typed-traversals` | Pending ❌ |
-| P7-3 · Neo4j adapter, read-only Cypher check, and degraded readiness | `feature/graph-store-neo4j` | Pending ❌ |
-| P7-4 · Graph seeding from sample data (`make seed-graph`) | `feature/graph-seed` | Pending ❌ |
+| P7-1 · `GraphStoreService` protocol and memory adapter | `feature/graph-store-memory` | Completed ✅ |
+| P7-2 · Typed traversals that also return their Cypher | `feature/graph-typed-traversals` | Completed ✅ |
+| P7-3 · Neo4j adapter, read-only Cypher check, and degraded readiness | `feature/graph-store-neo4j` | Completed ✅ |
+| P7-4 · Graph seeding from sample data (`make seed-graph`) | `feature/graph-seed` | Completed ✅ |
 
 ---
 
@@ -287,7 +287,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 4 | AI providers and guardrails | 4 | 4 |
 | 5 | API contract and browse API | 3 | 3 |
 | 6 | Vector RAG | 4 | 4 |
-| 7 | Graph RAG | 4 | 0 |
+| 7 | Graph RAG | 4 | 4 |
 | 8 | SQL retrieval | 3 | 0 |
 | 9 | Ingestion and document management | 6 | 0 |
 | 10 | Memory | 4 | 0 |
@@ -296,4 +296,4 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **18** |
+| **Total** | | **67** | **22** |

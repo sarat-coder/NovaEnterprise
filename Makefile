@@ -51,9 +51,11 @@ lint:
 ingest:
 	@echo "ingest target is added in Phase 9"
 
-## seed-graph: build the in-memory or Neo4j graph — added in Phase 7
+## seed-graph: build the in-memory graph from sample data (Phase 7)
 seed-graph:
-	@echo "seed-graph target is added in Phase 7"
+	PYTHONPATH=$(BACKEND)$(SEP)$$PYTHONPATH PYTHONIOENCODING=utf-8 \
+	GRAPH_STORE=memory LLM_PROVIDER=fake VECTOR_STORE=memory \
+	$(UV) run python -m rag.graph_seed
 
 ## demo: run canonical question end-to-end — added in Phase 12
 demo:
