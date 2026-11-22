@@ -191,10 +191,10 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P13-1 · Next.js 15 app shell and navigation (:3001) | `feature/frontend-app-shell` | Pending ❌ |
-| P13-2 · Typed API client that mirrors `API_CONTRACT.md` | `feature/frontend-api-client` | Pending ❌ |
-| P13-3 · Login and role-aware layout | `feature/frontend-auth-layout` | Pending ❌ |
-| P13-4 · Browse pages: customers, incidents, and decisions | `feature/frontend-browse-pages` | Pending ❌ |
+| P13-1 · Next.js 15 app shell and navigation (:3001) | `feature/frontend-app-shell` | Completed ✅ |
+| P13-2 · Typed API client that mirrors `API_CONTRACT.md` | `feature/frontend-api-client` | Completed ✅ |
+| P13-3 · Login and role-aware layout | `feature/frontend-auth-layout` | Completed ✅ |
+| P13-4 · Browse pages: customers, incidents, and decisions | `feature/frontend-browse-pages` | Completed ✅ |
 
 ---
 
@@ -293,7 +293,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 10 | Memory | 4 | 4 |
 | 11 | Research agents | 5 | 5 |
 | 12 | Workflow graph and research API | 5 | 5 |
-| 13 | Console shell | 4 | 0 |
+| 13 | Console shell | 4 | 4 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **31** |
+| **Total** | | **67** | **35** |
