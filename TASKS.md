@@ -118,9 +118,9 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P8-1 · `validate_sql()` and the table and column allowlist | `feature/sql-validator` | Pending ❌ |
-| P8-2 · SQL query templates | `feature/sql-templates` | Pending ❌ |
-| P8-3 · SQL retriever that records each query and returns `Evidence` | `feature/sql-retriever` | Pending ❌ |
+| P8-1 · `validate_sql()` and the table and column allowlist | `feature/sql-validator` | Completed ✅ |
+| P8-2 · SQL query templates | `feature/sql-templates` | Completed ✅ |
+| P8-3 · SQL retriever that records each query and returns `Evidence` | `feature/sql-retriever` | Completed ✅ |
 
 ---
 
@@ -288,7 +288,7 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 5 | API contract and browse API | 3 | 3 |
 | 6 | Vector RAG | 4 | 4 |
 | 7 | Graph RAG | 4 | 4 |
-| 8 | SQL retrieval | 3 | 0 |
+| 8 | SQL retrieval | 3 | 3 |
 | 9 | Ingestion and document management | 6 | 0 |
 | 10 | Memory | 4 | 0 |
 | 11 | Research agents | 5 | 0 |
