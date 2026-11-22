@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.auth import router as auth_router
 from app.api.customers import router as customers_router
 from app.api.decisions import router as decisions_router
+from app.api.documents import router as documents_router
+from app.api.graph import router as graph_router
 from app.api.health import router as health_router
 from app.api.incidents import router as incidents_router
 from app.core.config import get_settings
@@ -56,6 +58,11 @@ async def lifespan(app: FastAPI):
 
     register_vector_store_check()
 
+    # Phase 7: Graph store readiness check.
+    from rag.graph_store import register_graph_store_check  # noqa: PLC0415
+
+    register_graph_store_check()
+
     logger.info("Startup complete")
     yield
     logger.info("NovaEnterprise backend stopping")
@@ -96,6 +103,10 @@ def create_app() -> FastAPI:
     app.include_router(customers_router)
     app.include_router(incidents_router)
     app.include_router(decisions_router)
+    # Documents + approvals (Phase 9)
+    app.include_router(documents_router)
+    # Knowledge graph (Phase 9)
+    app.include_router(graph_router)
 
     return app
 
