@@ -161,11 +161,11 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P11-1 · `ResearchState` and deterministic `agents/rules.py` | `feature/agent-state-rules` | Pending ❌ |
-| P11-2 · Analysis nodes: analyze_query, assess_complexity, decompose | `feature/agent-nodes-analysis` | Pending ❌ |
-| P11-3 · Routing node and vector, SQL, graph, and hybrid retrieval nodes | `feature/agent-nodes-retrieval` | Pending ❌ |
-| P11-4 · collect_evidence, check_missing_evidence, and bounded corrective retrieval | `feature/agent-nodes-corrective` | Pending ❌ |
-| P11-5 · verify_evidence, synthesize_answer, and verify_citations | `feature/agent-nodes-verify-synthesize` | Pending ❌ |
+| P11-1 · `ResearchState` and deterministic `agents/rules.py` | `feature/agent-state-rules` | Completed ✅ |
+| P11-2 · Analysis nodes: analyze_query, assess_complexity, decompose | `feature/agent-nodes-analysis` | Completed ✅ |
+| P11-3 · Routing node and vector, SQL, graph, and hybrid retrieval nodes | `feature/agent-nodes-retrieval` | Completed ✅ |
+| P11-4 · collect_evidence, check_missing_evidence, and bounded corrective retrieval | `feature/agent-nodes-corrective` | Completed ✅ |
+| P11-5 · verify_evidence, synthesize_answer, and verify_citations | `feature/agent-nodes-verify-synthesize` | Completed ✅ |
 
 ---
 
@@ -176,11 +176,11 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P12-1 · Workflow tracer (`tracer.node`) and `workflow_events` | `feature/workflow-tracer-events` | Pending ❌ |
-| P12-2 · Graph wiring: `GRAPH_NODES`, `GRAPH_EDGES`, `build_graph()` | `feature/graph-wiring` | Pending ❌ |
-| P12-3 · Research service: create session, background run, persist after each node | `feature/research-service` | Pending ❌ |
-| P12-4 · Research API: 202 start, poll, and events | `feature/api-research` | Pending ❌ |
-| P12-5 · `make demo` for the canonical and simple questions | `feature/demo-canonical-question` | Pending ❌ |
+| P12-1 · Workflow tracer (`tracer.node`) and `workflow_events` | `feature/workflow-tracer-events` | Completed ✅ |
+| P12-2 · Graph wiring: `GRAPH_NODES`, `GRAPH_EDGES`, `build_graph()` | `feature/graph-wiring` | Completed ✅ |
+| P12-3 · Research service: create session, background run, persist after each node | `feature/research-service` | Completed ✅ |
+| P12-4 · Research API: 202 start, poll, and events | `feature/api-research` | Completed ✅ |
+| P12-5 · `make demo` for the canonical and simple questions | `feature/demo-canonical-question` | Completed ✅ |
 
 ---
 
@@ -291,9 +291,9 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 8 | SQL retrieval | 3 | 3 |
 | 9 | Ingestion and document management | 6 | 6 |
 | 10 | Memory | 4 | 4 |
-| 11 | Research agents | 5 | 0 |
-| 12 | Workflow graph and research API | 5 | 0 |
+| 11 | Research agents | 5 | 5 |
+| 12 | Workflow graph and research API | 5 | 5 |
 | 13 | Console shell | 4 | 0 |
 | 14 | Research and knowledge screens | 5 | 0 |
 | 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **26** |
+| **Total** | | **67** | **31** |
