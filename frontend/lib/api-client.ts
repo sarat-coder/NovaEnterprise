@@ -18,6 +18,12 @@ import type {
   ResearchSession,
   WorkflowEvent,
   DocumentRecord,
+  DocumentUploadResponse,
+  ApprovalRequest,
+  GraphNode,
+  GraphNeighbors,
+  CypherResult,
+  GraphStats,
 } from "./types";
 
 const BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8001";
@@ -140,6 +146,58 @@ export const researchApi = {
 
 export const documentsApi = {
   list: () => request<DocumentRecord[]>("/api/v1/documents"),
+
+  upload: (file: File) => {
+    const token = getToken();
+    const headers: Record<string, string> = {};
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+    const form = new FormData();
+    form.append("file", file);
+    return fetch(`${BASE}/api/v1/documents/upload`, {
+      method: "POST",
+      headers,
+      body: form,
+    }).then(async (res) => {
+      const requestId = res.headers.get("X-Request-ID") ?? undefined;
+      if (!res.ok) {
+        let detail = `HTTP ${res.status}`;
+        try { detail = (await res.json()).detail ?? detail; } catch { /* ignore */ }
+        throw new ApiError(res.status, detail, requestId);
+      }
+      return res.json() as Promise<DocumentUploadResponse>;
+    });
+  },
+
+  requestDelete: (docId: string) =>
+    request<ApprovalRequest>(`/api/v1/documents/${docId}`, { method: "DELETE" }),
+};
+
+// ─── Knowledge Graph ──────────────────────────────────────────────────────────
+
+export const graphApi = {
+  stats: () => request<GraphStats>("/api/v1/graph/stats"),
+
+  listNodes: (params?: { label?: string; limit?: number }) => {
+    const qs = new URLSearchParams();
+    if (params?.label) qs.set("label", params.label);
+    if (params?.limit) qs.set("limit", String(params.limit));
+    const q = qs.toString();
+    return request<GraphNode[]>(`/api/v1/graph/nodes${q ? `?${q}` : ""}`);
+  },
+
+  getNode: (nodeId: string) =>
+    request<GraphNode>(`/api/v1/graph/nodes/${encodeURIComponent(nodeId)}`),
+
+  getNeighbors: (nodeId: string, direction: "out" | "in" | "both" = "both") =>
+    request<GraphNeighbors>(
+      `/api/v1/graph/nodes/${encodeURIComponent(nodeId)}/neighbors?direction=${direction}`,
+    ),
+
+  runCypher: (cypher: string, params: Record<string, unknown> = {}) =>
+    request<CypherResult>("/api/v1/graph/cypher", {
+      method: "POST",
+      body: JSON.stringify({ cypher, params }),
+    }),
 };
 
 export { ApiError };

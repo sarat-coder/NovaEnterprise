@@ -205,11 +205,11 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P14-1 · `/search` page | `feature/frontend-search-page` | Pending ❌ |
-| P14-2 · `/research/[id]`: 2 s polling, sub-questions, SQL and Cypher, evidence, cited answer, memory, and timeline | `feature/frontend-research-session` | Pending ❌ |
-| P14-3 · `/knowledge-graph` explorer | `feature/frontend-knowledge-graph` | Pending ❌ |
-| P14-4 · `/documents`: upload and delete request | `feature/frontend-documents` | Pending ❌ |
-| P14-5 · Frontend unit tests and lint | `feature/frontend-unit-tests` | Pending ❌ |
+| P14-1 · `/search` page | `feature/frontend-search-page` | Completed ✅ |
+| P14-2 · `/research/[id]`: 2 s polling, sub-questions, SQL and Cypher, evidence, cited answer, memory, and timeline | `feature/frontend-research-session` | Completed ✅ |
+| P14-3 · `/knowledge-graph` explorer | `feature/frontend-knowledge-graph` | Completed ✅ |
+| P14-4 · `/documents`: upload and delete request | `feature/frontend-documents` | Completed ✅ |
+| P14-5 · Frontend unit tests and lint | `feature/frontend-unit-tests` | Completed ✅ |
 
 ---
 
@@ -294,6 +294,6 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 11 | Research agents | 5 | 5 |
 | 12 | Workflow graph and research API | 5 | 5 |
 | 13 | Console shell | 4 | 4 |
-| 14 | Research and knowledge screens | 5 | 0 |
+| 14 | Research and knowledge screens | 5 | 5 |
 | 15 | Evaluation and delivery | 6 | 0 |
 | **Total** | | **67** | **35** |
