@@ -12,6 +12,7 @@ from app.api.documents import router as documents_router
 from app.api.graph import router as graph_router
 from app.api.health import router as health_router
 from app.api.incidents import router as incidents_router
+from app.api.memory import router as memory_router
 from app.core.config import get_settings
 from app.core.health import register_check
 from app.core.logging import configure_logging, get_logger
@@ -107,6 +108,8 @@ def create_app() -> FastAPI:
     app.include_router(documents_router)
     # Knowledge graph (Phase 9)
     app.include_router(graph_router)
+    # Memory API (Phase 10)
+    app.include_router(memory_router)
 
     return app
 
