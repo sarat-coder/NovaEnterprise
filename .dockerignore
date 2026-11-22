@@ -1,0 +1,40 @@
+# Never bake secrets or runtime data into images
+.env
+.env.*
+!.env.example
+data/
+*.db
+
+# Git and IDE
+.git
+.github
+.vscode
+.idea
+.claude
+
+# Python build artefacts
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Node build artefacts
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Documentation and internal
+docs/
+internal/
+*.md
+!README.md
+
+# Test data
+tests/
+datasets/

@@ -220,12 +220,12 @@ This file sets the execution order. Each phase waits only for the contract it ac
 
 | Task | Branch | Status |
 |------|--------|--------|
-| P15-1 · Eval dataset, `evaluate.py`, and CI thresholds | `feature/eval-metrics-thresholds` | Pending ❌ |
-| P15-2 · Backend and frontend Dockerfiles | `feature/docker-images` | Pending ❌ |
-| P15-3 · Compose stack: Postgres, Qdrant, Neo4j, and Redis | `feature/docker-compose` | Pending ❌ |
-| P15-4 · CI: eval gate and frontend lint | `feature/ci-eval-gate` | Pending ❌ |
-| P15-5 · MCP server over the read-only tools | `feature/integrations-mcp-server` | Pending ❌ |
-| P15-6 · Deployment hygiene tests | `feature/deployment-hygiene-tests` | Pending ❌ |
+| P15-1 · Eval dataset, `evaluate.py`, and CI thresholds | `feature/eval-metrics-thresholds` | Completed ✅ |
+| P15-2 · Backend and frontend Dockerfiles | `feature/docker-images` | Completed ✅ |
+| P15-3 · Compose stack: Postgres, Qdrant, Neo4j, and Redis | `feature/docker-compose` | Completed ✅ |
+| P15-4 · CI: eval gate and frontend lint | `feature/ci-eval-gate` | Completed ✅ |
+| P15-5 · MCP server over the read-only tools | `feature/integrations-mcp-server` | Completed ✅ |
+| P15-6 · Deployment hygiene tests | `feature/deployment-hygiene-tests` | Completed ✅ |
 
 ---
 
@@ -295,5 +295,5 @@ Phases 2 and 4 start together after P1-1. After Phase 2, Phases 6, 7, 8, and 10 
 | 12 | Workflow graph and research API | 5 | 5 |
 | 13 | Console shell | 4 | 4 |
 | 14 | Research and knowledge screens | 5 | 5 |
-| 15 | Evaluation and delivery | 6 | 0 |
-| **Total** | | **67** | **35** |
+| 15 | Evaluation and delivery | 6 | 6 |
+| **Total** | | **67** | **41** |
