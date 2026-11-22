@@ -163,3 +163,56 @@ export interface DocumentRecord {
   chunk_count: number;
   created_at: string;
 }
+
+export interface DocumentUploadResponse {
+  doc_id: string;
+  filename: string;
+  chunk_count: number;
+  flagged: boolean;
+  message: string;
+}
+
+export interface ApprovalRequest {
+  id: string;
+  resource_type: string;
+  resource_id: string;
+  action: string;
+  requested_by: string;
+  status: string;
+  note: string | null;
+  created_at: string;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+}
+
+// ─── Knowledge Graph ──────────────────────────────────────────────────────────
+
+export interface GraphNode {
+  node_id: string;
+  label: string;
+  properties: Record<string, unknown>;
+}
+
+export interface GraphEdge {
+  source_id: string;
+  target_id: string;
+  relationship: string;
+  properties: Record<string, unknown>;
+}
+
+export interface GraphNeighbors {
+  node: GraphNode;
+  neighbors: GraphNode[];
+  edges: GraphEdge[];
+}
+
+export interface CypherResult {
+  rows: Record<string, unknown>[];
+  row_count: number;
+  cypher: string;
+}
+
+export interface GraphStats {
+  node_count: number;
+  edge_count: number;
+}
